@@ -1,4 +1,4 @@
 /.vscode
-/build_1
-.txt
+/Btree/build_1
+/Btree/*.txt
 Btree.cpp
