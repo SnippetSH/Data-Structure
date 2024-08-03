@@ -21,5 +21,5 @@ B-tree
 ### Comment
 *** 
 In C compiler <br/>
-if class was declared with template, header and implement file can't be divided.
+if class was declared with template, header and implement file can't be divided.<br/>
 So, all implementations will be in the header file. (C++)
