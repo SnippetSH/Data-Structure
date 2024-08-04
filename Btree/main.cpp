@@ -1,72 +1,28 @@
 #include "Btree.h"
 #include <iostream>
 #include <cassert>
+#include <random>
 
 int main() {
-    Btree<int, std::string> tree;
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<int> dis(1, 100);
+
+    Btree<int, int> tree;
 
     // Insert test
-    tree.insert({10, "ten"});
-    tree.traverse();
+    for (int i = 1; i <= 100; ++i) {
+        tree.insert({i, 1});
+    }   
     
-    tree.insert({20, "twenty"});
     tree.traverse();
-   
-    tree.insert({5, "five"});
-    tree.traverse();
+    std::cout << "-----------------" << std::endl;
     
-    tree.insert({6, "six"});
-    tree.traverse();
-    
-    tree.insert({12, "twelve"});
-    tree.traverse();
-    
-    tree.insert({30, "thirty"});
-    tree.traverse();
-    
-    tree.insert({7, "seven"});
-    tree.traverse();
-    
-    tree.insert({17, "seventeen"});
-    tree.traverse();
-    
-
-    std::cout << "insert done\n";
-
-    // Search test
-    assert(tree.search(10) == "ten");
-    
-    assert(tree.search(20) == "twenty");
-    
-    assert(tree.search(5) == "five");
-    
-
-    std::cout << "search done\n";
-
-    // Deletion test
-    tree.remove(6);
-    tree.traverse();
-    std::cout << " ----- \n";
-    tree.remove(13); // non-existing key
-    tree.traverse();
-    std::cout << " ----- \n";
-    tree.remove(7);
-    tree.traverse();
-    std::cout << " ----- \n";
-    tree.remove(4); // non-existing key
-    tree.traverse();
-    std::cout << " ----- \n";
-    tree.remove(2); // non-existing key
-    tree.traverse();
-    std::cout << " ----- \n";
-    tree.remove(10);
-    tree.traverse();
-    std::cout << " ----- \n";
-    tree.remove(30);
-    tree.traverse();
-    
-
-    std::cout << "deletion done\n";
+    for (int i = 0; i < 20; i++) {
+        int n = dis(gen);
+        std::cout << "난수 : " << n << std::endl;
+        tree.remove(n);
+    }
 
     // Traversal test
     tree.traverse();

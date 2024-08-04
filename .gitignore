@@ -1,4 +1,6 @@
 /.vscode
-/Btree/build_1
+/Btree/*
 /Btree/*.txt
 Btree.cpp
+/Build_dll_Btree
+/Build_so_Btree
